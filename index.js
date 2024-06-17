@@ -40,7 +40,7 @@ const getRandomNumber = (numMin, numMax) => {
 
 // 4️⃣ - Asignar un número random al ID de los que serán nuestros pokemons
 // Declara 2 variables para cada pokemon y guarda los números que retorna la funci´øn en ellos
-
+// debugger;
 const poke1ID = getRandomNumber(1, 900);
 const poke2ID = getRandomNumber(1, 900);
 
@@ -52,6 +52,7 @@ const poke2ID = getRandomNumber(1, 900);
 
 //Puedes usar esta: 👩🏻‍💻
 const getPokemon = async (pokeID) => {
+  
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeID}`);
   const data = await response.json();
   return data;
@@ -66,7 +67,7 @@ const getPokemon = async (pokeID) => {
 
 const createPokemons = async (poke1ID, poke2ID) => {
   const pokemon1 = await getPokemon(poke1ID);
-  debugger;
+  
   poke1Img.src = pokemon1.sprites.other["official-artwork"]["front_default"];
   poke1HP.innerHTML += pokemon1.stats[0].base_stat;
   poke1Name.innerHTML += pokemon1.name;
@@ -117,7 +118,7 @@ const createPokemons = async (poke1ID, poke2ID) => {
   // 3. Narrar la batalla ;). 
   // Para esto vamos a usar el elemento modal__text, aquí vamos a ir llenando su innerHTML.
   // Empecemos con el Pokemon 1.
-  //debugger;
+  
   modalText.innerHTML += `${poke1Name} ataca a ${poke2Name} con ${poke1Attack} puntos de ataque <br>`;
 
   // Ahora calculemos el daño que le hizo a pokemon2 y 
@@ -186,3 +187,25 @@ const fightButton = document.querySelector(".button__fight");
 const modalButton = document.querySelector(".button__modal");
 
 createPokemons(poke1ID, poke2ID);
+
+catchButton.addEventListener("click", () =>{
+  window.location.reload();
+});
+
+fightButton.addEventListener("click", () => {
+  const modalLayer = document.querySelector(".layer");
+  const modalContainer = document.querySelector(".modal");
+  modalLayer.style.display = "block";
+  modalContainer.style.display = "block";
+
+  fightPokemons();
+});
+
+modalButton.addEventListener("click", () => {
+  const modalLayer = document.querySelector(".layer");
+  const modalContainer = document.querySelector(".modal");
+  const modalText = document.querySelector(".modal__text");
+  modalLayer.style.display = "none";
+  modalContainer.style.display = "none";
+  modalText.innerHTML = "";
+});
