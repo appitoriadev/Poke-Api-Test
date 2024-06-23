@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES5", // Keep the target as ES5
-    "lib": ["ES2015", "DOM"], // Include the ES2015 library for Promises
-    "module": "commonjs",
+    "target": "ES2015", // or "ES6", "ES2016", etc.
+    "lib": ["ES2015", "DOM"], // Include DOM for browser environments
+    "module": "ES6", // Use ES6 modules
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist" // Output directory for compiled files
+  },
+  "include": ["typescript/**/*"] // Specify the source files to be compiled
 }
