@@ -1,0 +1,129 @@
+/* Aquí vamos a definir los estilos */
+
+/* 
+    Empecemos por establecer limpiar nuestro model box.
+    Esto minimiza los errores de márgenes colapsando
+*/
+
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    font-family: monospace;
+}
+
+/*
+    Ahora los estilos para nuestro header.
+    - Width del 100% del tamaño de la pantalla
+    - Altura del 10%
+    - Centrar su contenido usando FlexBox
+    - Crea un borde cool :)
+*/
+
+.header-container, .footer-container {
+    width: 100vw;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(32, 222, 111, 0.66);
+}
+
+/*
+    Es hora de configurar nuestra secci´øn de pokemones, primero el contenedor :)
+    - Definir medidas (Ancho 100%, alto 80%)
+    - Centrar contenido usando flexbox
+*/
+
+.main-container {
+    width: 100vw;
+    height: 79.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.pokemon-container {
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+/*
+    Ahora, creemos las tarjetas de pokemon :)
+*/
+.pokemon {
+    width: 350px;
+    height: 500px;
+    border: 1px solid rgba(32, 222, 111, 0.66);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.img-container {
+    width: 80%;
+    height: 250px;
+    border: 1px solid rgba(32, 222, 111, 0.66);
+    align-self:center;
+
+}
+
+.poke-img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.pokemon__stats {
+    padding: 9px;
+    width: 75%;
+    height: 150px;
+    border: 1px solid rgba(32, 222, 111, 0.66);
+}
+
+.button {
+    width: 110px;
+    height: 35px;
+    background-color: white;
+    border: 1px solid rgba(32, 222, 111, 0.66);
+    font-family: monospace;
+    font-size: 15px;
+    padding: 3px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    width: 300px;
+    height: 237px;
+    padding: 14px;
+    background-color: rgba(32, 222, 111, 0.66);
+    border: 1px solid white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.layer {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: grey;
+    opacity: 50%;
+}
+
+.button__modal {
+    position: relative;
+    left: 30%;
+    top: 5%;
+}
